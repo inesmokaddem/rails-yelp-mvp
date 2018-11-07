@@ -10,6 +10,8 @@ class ReviewsController < ApplicationController
     # we need `restaurant_id` to asssociate review with corresponding restaurant
     @review.restaurant = Restaurant.find(params[:restaurant_id])
     @review.save
+
+    redirect_to restaurant_path(@review.restaurant)
   end
 
   private

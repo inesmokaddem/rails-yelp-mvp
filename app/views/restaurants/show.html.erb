@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="card">
+    <div class="desrciption">
+      <h3>Restaurant name</h3>
+      <h4><%= @restaurant.name %></h4>
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p><%= @restaurant.category %></p>
+    </div>
+    <div class="reviews">
+      <h4>Reviews</h4>
+      <% @restaurant.reviews.each do |review|%>
+      <div class="block-reviews">
+        <p><%= review.content%></p>
+      </div>
+      <% end %>
+    </div>
+    <%= link_to 'Add a review',  new_restaurant_review_path(@restaurant), class: 'btn btn-success btn-add' %>
+    <%= link_to 'Delete restaurant', restaurant_path(@restaurant), method: :delete, class: 'btn btn-danger btn-add' %>
+  </div>
+</div>
